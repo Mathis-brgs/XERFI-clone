@@ -4,6 +4,7 @@ import Panier from "./pages/panier";
 
 import Dashboard from "./pages/Dashboard";
 import PanierConnexion from "./pages/PanierConnexion";
+import PanierCoordonnees from "./pages/PanierCoordonnees";
 
 export default function App() {
   return (
@@ -13,6 +14,7 @@ export default function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/panier" element={<Panier />} />
         <Route path="/panier/connexion" element={<PanierConnexion />} />
+        <Route path="/panier/coordonnees" element={<PanierCoordonnees />} />
       </Routes>
     </BrowserRouter>
   );

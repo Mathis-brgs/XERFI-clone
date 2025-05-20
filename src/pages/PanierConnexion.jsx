@@ -12,7 +12,7 @@ export default function PanierConnexion() {
   const handleConnexion = (e) => {
     e.preventDefault();
 
-    navigate("/panier/paiement");
+    navigate("/panier/coordonnees");
   };
 
   return (
