@@ -9,7 +9,7 @@ export default function ProgressionCommande({ etapeActuelle }) {
         return (
           <div
             key={etape}
-            className={`px-10 py-4 text-m font-bold
+            className={`px-8 py-2 text-m font-bold
               ${
                 estActive
                   ? "bg-blue-600 text-white"
