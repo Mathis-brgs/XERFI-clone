@@ -1,20 +1,60 @@
+import { useNavigate } from "react-router-dom";
+
 export default function RecapPanier({
   total,
   fraisPostaux,
   fraisDiffusion,
   totalAvecFrais,
-  payer,
+  panier,
+  postalSelected,
+  diffusionMode,
 }) {
-  return (
-    <div className="ml-8 mt-4 font-semibold">
-      <p>Total produits : {total} €HT</p>
-      <p className="text-red-600">Frais postaux : {fraisPostaux} €HT</p>
-      <p className="text-red-600">Frais diffusion : {fraisDiffusion} €HT</p>
-      <p className="mt-2 font-bold">Total à payer : {totalAvecFrais} €HT</p>
+  const tva = totalAvecFrais * 0.055;
+  const navigate = useNavigate();
 
+  return (
+    <div className="flex flex-col items-center">
+      <div className="font-semibold border py-2 mx-4 rounded-xl border-black px-4">
+        <div className="py-2 mb-6">
+          <div className="flex">
+            <h5 className="font-semibold">Mes études</h5>
+            <span className="text-right flex-auto">{total} €HT</span>
+          </div>
+          {panier.map((item) => (
+            <li key={item.id} className="flex">
+              <span className="text-sm">{item.nom}</span>{" "}
+            </li>
+          ))}
+          <div className="flex mt-8">
+            <h5 className="font-semibold">Mode de réception</h5>
+            <span className="text-right flex-auto">{fraisPostaux} €HT</span>
+          </div>
+          <p className={"text-xs italic"}>PDF sur xerfi.com</p>
+          {postalSelected && (
+            <p className={"text-xs italic"}>+ classeur papier</p>
+          )}
+          <div className="flex mt-8">
+            <h5 className="font-semibold">Modalité de diffusion</h5>
+            <span className="text-right flex-auto">{fraisDiffusion} €HT</span>
+          </div>
+
+          {diffusionMode === "2-5" ? (
+            <p className={"text-xs italic"}>Diffusion 2-5 pers.</p>
+          ) : (
+            <p className={"text-xs italic"}>Utilisation personnelle</p>
+          )}
+        </div>
+
+        <p className="mt-2 font-bold">TVA : {tva} €HT</p>
+        <p className="mt-2 font-bold">Total HT : {totalAvecFrais} €HT</p>
+
+        <h3 className="mt-8 font-bold">
+          MONTANT TOTAL : {totalAvecFrais + tva} €TTC
+        </h3>
+      </div>
       <button
-        onClick={payer}
-        className="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+        onClick={() => navigate("/panier/connexion")}
+        className="mt-4 bg-blue-600 text-white px-8 py-2 rounded hover:bg-blue-700 uppercase font-bold"
       >
         Commander
       </button>

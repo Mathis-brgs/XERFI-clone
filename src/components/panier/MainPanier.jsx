@@ -9,7 +9,7 @@ export default function MainPanier({
   fraisDiffusion,
 }) {
   return (
-    <ul className="border py-2 mx-4 rounded-xl border-black w-3/5">
+    <ul className="border pt-2 pb-8 mx-4 rounded-xl border-black w-3/5">
       {panier.map((item) => (
         <li key={item.id} className="flex py-2 px-4">
           <span className="font-semibold">{item.nom}</span>

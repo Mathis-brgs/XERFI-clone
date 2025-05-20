@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 import ProgressionCommande from "../components/Panier/ProgressionCommande";
 import MainPanier from "../components/Panier/MainPanier";
 import RecapPanier from "../components/Panier/RecapPanier";
@@ -15,7 +16,6 @@ export default function Panier() {
 
   const [postalSelected, postalSetSelected] = useState(false);
   const [diffusionMode, setDiffusionMode] = useState("personnelle");
-  const [paiementEffectue, setPaiementEffectue] = useState(false);
 
   const nombreItems = panier.length;
   const total = panier.reduce((acc, item) => acc + item.prix, 0);
@@ -27,34 +27,14 @@ export default function Panier() {
     setPanier(panier.filter((item) => item.id !== id));
   };
 
-  const payer = () => {
-    setPaiementEffectue(true);
-  };
-
-  if (paiementEffectue) {
-    return (
-      <div className="p-4">
-        <ProgressionCommande etapeActuelle={4} />
-        <h1 className="text-xl font-bold text-green-600">
-          Paiement effectué !
-        </h1>
-        <p>Merci pour votre achat.</p>
-      </div>
-    );
-  }
-
   return (
     <div className="p-4">
       <ProgressionCommande etapeActuelle={0} />
 
-      <h1 className="text-xl font-bold mb-4 mx-20">
-        Votre panier ({nombreItems} {nombreItems > 1 ? "articles" : "article"})
-      </h1>
-
       {panier.length === 0 ? (
         <p>Votre panier est vide.</p>
       ) : (
-        <div className="flex mx-16">
+        <div className="flex mx-auto w-4/5 justify-center pt-4">
           <MainPanier
             panier={panier}
             supprimerArticle={supprimerArticle}
@@ -66,11 +46,12 @@ export default function Panier() {
             fraisDiffusion={fraisDiffusion}
           />
           <RecapPanier
+            panier={panier}
             total={total}
             fraisPostaux={fraisPostaux}
             fraisDiffusion={fraisDiffusion}
             totalAvecFrais={totalAvecFrais}
-            payer={payer}
+            postalSelected={postalSelected}
           />
         </div>
       )}
