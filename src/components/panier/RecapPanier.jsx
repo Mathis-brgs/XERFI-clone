@@ -17,7 +17,7 @@ export default function RecapPanier() {
 
   return (
     <div className="flex flex-col items-center">
-      <div className="font-semibold border py-2 mx-4 rounded-xl border-black px-4">
+      <div className="font-semibold border py-2 rounded-xl border-black px-4">
         <div className="py-2 mb-6">
           <div className="flex">
             <h5 className="font-semibold">Mes études</h5>

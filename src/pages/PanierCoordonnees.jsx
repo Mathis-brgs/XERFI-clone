@@ -55,7 +55,6 @@ export default function PanierCoordonnees() {
     }
 
     setError("");
-    alert("Formulaire soumis avec succès !");
   };
 
   // Fonction pour formater label (ex: raisonSociale -> Raison sociale)
