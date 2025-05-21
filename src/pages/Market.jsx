@@ -8,10 +8,12 @@ export default function Market() {
     chargerArticlesDisponibles,
     ajouterArticle,
     panier,
+    supprimerArticle,
   } = useCommande();
 
   const [filtreCategorie, setFiltreCategorie] = useState("Tous");
   const [recherche, setRecherche] = useState("");
+  const [hoveredId, setHoveredId] = useState(null);
 
   // Charger les articles au montage du composant
   useEffect(() => {
@@ -98,15 +100,26 @@ export default function Market() {
                 <span className="font-bold text-xl">{article.prix} €HT</span>
 
                 <button
-                  className={`px-4 py-2 rounded ${
+                  className={`px-4 py-2 rounded transition duration-200 min-w-[120px] text-center ${
                     estDansPanier(article.id)
-                      ? "bg-green-600 text-white"
+                      ? hoveredId === article.id
+                        ? "bg-red-600 text-white"
+                        : "bg-green-600 text-white"
                       : "bg-blue-600 text-white hover:bg-blue-700"
                   }`}
-                  onClick={() => ajouterArticle(article)}
-                  disabled={estDansPanier(article.id)}
+                  onClick={() =>
+                    estDansPanier(article.id)
+                      ? supprimerArticle(article.id)
+                      : ajouterArticle(article)
+                  }
+                  onMouseEnter={() => setHoveredId(article.id)}
+                  onMouseLeave={() => setHoveredId(null)}
                 >
-                  {estDansPanier(article.id) ? "Ajouté" : "Ajouter au panier"}
+                  {estDansPanier(article.id)
+                    ? hoveredId === article.id
+                      ? "Supprimer"
+                      : "Panier"
+                    : "Ajouter au panier"}
                 </button>
               </div>
             </div>
