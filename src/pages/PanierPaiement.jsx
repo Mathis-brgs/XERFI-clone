@@ -11,7 +11,6 @@ export default function PanierPaiement() {
     fraisPostaux,
     fraisDiffusion,
     totalAvecFrais,
-    supprimerArticle,
     postalSelected,
     setPostalSelected,
     diffusionMode,
@@ -20,7 +19,7 @@ export default function PanierPaiement() {
 
   return (
     <div className="container mx-auto p-4">
-      <ProgressionCommande etapeActuelle={0} />
+      <ProgressionCommande etapeActuelle={3} />
 
       <div className="mt-8 grid grid-cols-1 lg:grid-cols-3">
         {panier.length === 0 ? (
@@ -30,7 +29,7 @@ export default function PanierPaiement() {
         ) : (
           <>
             <div className="lg:col-span-2">
-              <MainPanier panier={panier} supprimerArticle={supprimerArticle} />
+              {/* <MainPanier panier={panier} supprimerArticle={supprimerArticle} /> */}
             </div>
             <div className="lg:col-span-1">
               <RecapPanier

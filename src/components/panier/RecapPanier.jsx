@@ -53,7 +53,7 @@ export default function RecapPanier() {
           Total HT : {totalAvecFrais.toFixed(2)} €HT
         </p>
 
-        <h3 className="mt-8 font-bold">
+        <h3 className="mt-8 pb-2 font-bold">
           MONTANT TOTAL : {(totalAvecFrais + tva).toFixed(2)} €TTC
         </h3>
       </div>
@@ -62,6 +62,7 @@ export default function RecapPanier() {
         className="mt-4 bg-blue-600 text-white px-8 py-2 rounded hover:bg-blue-700 uppercase font-bold"
       >
         Commander
+        {/* modifier en payer quand sur la page paiement */}
       </button>
     </div>
   );

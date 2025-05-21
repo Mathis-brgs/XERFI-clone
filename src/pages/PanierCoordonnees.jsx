@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import ProgressionCommande from "../components/Panier/ProgressionCommande";
 
 export default function PanierCoordonnees() {
@@ -18,6 +19,7 @@ export default function PanierCoordonnees() {
     referenceClient: "",
     siret: "",
   };
+  const navigate = useNavigate();
 
   const [facturation, setFacturation] = useState(initialFacturation);
   const [error, setError] = useState("");
@@ -178,6 +180,7 @@ export default function PanierCoordonnees() {
 
           <button
             type="submit"
+            onClick={() => navigate("/panier/paiement")}
             className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700"
           >
             POURSUIVRE
