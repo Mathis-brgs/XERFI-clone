@@ -41,7 +41,7 @@ export default function Market() {
 
   return (
     <div className="p-8">
-      <h1 className="text-3xl font-bold mb-8 text-center">
+      <h1 className="text-3xl font-bold mb-4 text-center">
         Catalogue d'études
       </h1>
 
