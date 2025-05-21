@@ -1,13 +1,17 @@
-export default function MainPanier({
-  panier,
-  supprimerArticle,
-  postalSelected,
-  postalSetSelected,
-  diffusionMode,
-  setDiffusionMode,
-  fraisPostaux,
-  fraisDiffusion,
-}) {
+import { useCommande } from "../../contexts/CommandeContext";
+
+export default function MainPanier() {
+  const {
+    panier,
+    supprimerArticle,
+    postalSelected,
+    setPostalSelected,
+    diffusionMode,
+    setDiffusionMode,
+    fraisPostaux,
+    fraisDiffusion,
+  } = useCommande();
+
   return (
     <ul className="border pt-2 pb-8 mx-4 rounded-xl border-black w-3/5">
       {panier.map((item) => (
@@ -41,7 +45,7 @@ export default function MainPanier({
 
         <div className="flex items-center gap-x-2 mx-4">
           <button
-            onClick={() => postalSetSelected(!postalSelected)}
+            onClick={() => setPostalSelected(!postalSelected)}
             className={`w-4 h-4 rounded pointer-events-auto text-white ${
               postalSelected
                 ? "bg-blue-800 border-none"

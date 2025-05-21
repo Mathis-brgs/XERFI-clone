@@ -1,14 +1,17 @@
 import { useNavigate } from "react-router-dom";
+import { useCommande } from "../../contexts/CommandeContext";
 
-export default function RecapPanier({
-  total,
-  fraisPostaux,
-  fraisDiffusion,
-  totalAvecFrais,
-  panier,
-  postalSelected,
-  diffusionMode,
-}) {
+export default function RecapPanier() {
+  const {
+    panier,
+    total,
+    fraisPostaux,
+    fraisDiffusion,
+    totalAvecFrais,
+    postalSelected,
+    diffusionMode,
+  } = useCommande();
+
   const tva = totalAvecFrais * 0.055;
   const navigate = useNavigate();
 
@@ -45,11 +48,13 @@ export default function RecapPanier({
           )}
         </div>
 
-        <p className="mt-2 font-bold">TVA : {tva} €HT</p>
-        <p className="mt-2 font-bold">Total HT : {totalAvecFrais} €HT</p>
+        <p className="mt-2 font-bold">TVA : {tva.toFixed(2)} €HT</p>
+        <p className="mt-2 font-bold">
+          Total HT : {totalAvecFrais.toFixed(2)} €HT
+        </p>
 
         <h3 className="mt-8 font-bold">
-          MONTANT TOTAL : {totalAvecFrais + tva} €TTC
+          MONTANT TOTAL : {(totalAvecFrais + tva).toFixed(2)} €TTC
         </h3>
       </div>
       <button
