@@ -118,7 +118,7 @@ export default function Market() {
                   {estDansPanier(article.id)
                     ? hoveredId === article.id
                       ? "Supprimer"
-                      : "Panier"
+                      : "Ajouté"
                     : "Ajouter au panier"}
                 </button>
               </div>

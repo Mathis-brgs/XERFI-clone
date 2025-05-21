@@ -30,19 +30,19 @@ export default function Login() {
           type="email"
           placeholder="Email"
           onChange={(e) => setEmail(e.target.value)}
-          className="p-2 m-4 border border-gray-900 rounded-md"
+          className="p-2 mx-4 my-2 border border-gray-900 rounded-md"
         />
         <p className="mx-4 mt-2">Mot de passe</p>
         <input
           type="password"
           placeholder="Mot de passe"
           onChange={(e) => setPassword(e.target.value)}
-          className="p-2 m-4 border border-gray-900 rounded-md"
+          className="p-2 mx-4 my-2 border border-gray-900 rounded-md"
         />
         <div className="flex justify-end m-4">
           <button
             onClick={handleLogin}
-            className="p-2 bg-rose-800 text-white w-1/3 font-bold"
+            className="px-8 py-2 bg-rose-800 text-white max-w-1/2 font-bold"
           >
             SE CONNECTER
           </button>

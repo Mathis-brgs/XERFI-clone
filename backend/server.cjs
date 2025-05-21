@@ -7,16 +7,13 @@ const PORT = 3000;
 app.use(cors());
 app.use(express.json());
 
-
 const fakeUser = {
-  email: "jean@example.com",
+  email: "mborges@xerfi.fr",
   password: "1234",
-  name: "Jean Dupont",
+  name: "Mathis Borges",
 };
 
-
 const validToken = "fake-jwt-token";
-
 
 app.post("/api/login", (req, res) => {
   const { email, password } = req.body;
