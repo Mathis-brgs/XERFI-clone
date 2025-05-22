@@ -29,10 +29,10 @@ export default function Panier() {
           </div>
         ) : (
           <>
-            <div className="lg:col-span-2">
+            <div className="lg:col-span-2 py-2">
               <MainPanier panier={panier} supprimerArticle={supprimerArticle} />
             </div>
-            <div className="lg:col-span-1">
+            <div className="lg:col-span-1 py-2">
               <RecapPanier
                 nombreItems={nombreItems}
                 total={total}

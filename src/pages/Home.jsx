@@ -1,4 +1,4 @@
-import Login from "../components/home/Login";
+import Login from "../components/abonnes/Login";
 import loginImage from "../assets/homepage_xerfi_abonnes.jpg";
 
 const Home = () => {
